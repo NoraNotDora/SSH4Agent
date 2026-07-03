@@ -1,0 +1,52 @@
+[defaults]
+workspace = "default"
+
+[remotes.remote1]
+host = "exp-server"
+ssh_config = "ssh_config"
+ssh_options = []
+
+[remotes.remote2]
+host = "exp-server-2"
+ssh_config = "ssh_config"
+ssh_options = []
+
+[workspaces.default]
+remote = "remote1"
+local_dir = "workspaces/default"
+remote_dir = "/data/workspaces/YOUR_NAME/my_project"
+rsync_flags = ["-az", "--info=progress2"]
+excludes = [
+  ".git/",
+  ".venv/",
+  "__pycache__/",
+  "*.pyc",
+  "outputs/",
+  "output/",
+  "logs/",
+  "checkpoints/",
+  "wandb/",
+  "runs/",
+  "tmp/",
+]
+status_commands = []
+
+[workspaces.second]
+remote = "remote2"
+local_dir = "workspaces/second"
+remote_dir = "/data/workspaces/YOUR_NAME/my_project_on_remote2"
+rsync_flags = ["-az", "--info=progress2"]
+excludes = [
+  ".git/",
+  ".venv/",
+  "__pycache__/",
+  "*.pyc",
+  "outputs/",
+  "output/",
+  "logs/",
+  "checkpoints/",
+  "wandb/",
+  "runs/",
+  "tmp/",
+]
+status_commands = []

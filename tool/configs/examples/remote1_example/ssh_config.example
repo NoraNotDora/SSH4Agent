@@ -1,0 +1,36 @@
+# OpenSSH config template.
+# Copy the block you need into ~/.ssh/config, then edit the placeholders.
+#
+# After editing, verify with:
+#   ssh exp-server
+#
+# If your server requires a jump host, use the second block.
+
+Host exp-server
+    HostName YOUR_SERVER_HOST_OR_IP
+    User SHARED_REMOTE_USER
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519
+    ServerAliveInterval 60
+    ServerAliveCountMax 5
+    IdentitiesOnly yes
+
+# Optional: target server reached through a jump host.
+# Host lab-jump
+#     HostName YOUR_JUMP_HOST_OR_IP
+#     User YOUR_JUMP_USER
+#     Port 22
+#     IdentityFile ~/.ssh/id_ed25519
+#     ServerAliveInterval 60
+#     ServerAliveCountMax 5
+#     IdentitiesOnly yes
+#
+# Host exp-server-via-jump
+#     HostName YOUR_INTERNAL_GPU_HOST_OR_IP
+#     User SHARED_REMOTE_USER
+#     Port 22
+#     IdentityFile ~/.ssh/id_ed25519
+#     ProxyJump lab-jump
+#     ServerAliveInterval 60
+#     ServerAliveCountMax 5
+#     IdentitiesOnly yes

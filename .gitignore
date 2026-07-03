@@ -1,0 +1,24 @@
+# Python/cache
+__pycache__/
+*.py[cod]
+*.log
+
+# Generated command wrappers
+tool/bin/
+
+# Local/private remote configs and keys. Keep examples tracked.
+tool/configs/remote*/
+!tool/configs/examples/
+!tool/configs/examples/**
+
+# Local mirrored workspaces
+workspaces/*
+!workspaces/.gitkeep
+
+# Local tool state
+.tool4remote/
+
+# OS/editor noise
+.DS_Store
+*~
+*.swp
